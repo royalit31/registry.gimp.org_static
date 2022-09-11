@@ -880,7 +880,7 @@ class Color_palette:
             testo_complementare=str(c06_rgb[0])+" "+str(c06_rgb[1])+" "+str(c06_rgb[2])+" complementare_01"+"\n"+str(c07_rgb[0])+" "+str(c07_rgb[1])+" "+str(c07_rgb[2])+" complementare_02"+"\n"+str(c08_rgb[0])+" "+str(c08_rgb[1])+" "+str(c08_rgb[2])+" complementare_03"+"\n"+str(c09_rgb[0])+" "+str(c09_rgb[1])+" "+str(c09_rgb[2])+" complementare_04"+"\n"+str(c10_rgb[0])+" "+str(c10_rgb[1])+" "+str(c10_rgb[2])+" complementare_05"+"\n"
             tutto=testo01+testo_primario+testo_complementare
 
-        elif armonia=="Triadic" or armonia=="Analogous":
+        elif armonia in ("Triadic", "Analogous"):
             #colore secondario A
             c11_rgb=int(round(col_secondarioA.rgb[0]*255)),int(round(col_secondarioA.rgb[1]*255)),int(round(col_secondarioA.rgb[2]*255))
             mono_col3=col_secondarioA.MonochromeScheme()
@@ -1317,7 +1317,7 @@ class Color_palette:
                 self.sbm_04.set_markup("<u><span foreground=\""+self.c08_hex+"\" ><b>Statistics</b></span></u>")
                 self.box_sbm_04.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.c07_hex))     
 
-            elif armonia=="Triadic" or armonia=="Analogous":
+            elif armonia in ("Triadic", "Analogous"):
                 self.titolo.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.c01_hex))
                 self.box_b01.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.c02_hex))
                 self.box_b02.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse(self.c03_hex))
