@@ -14,9 +14,9 @@ from gimpfu import *
 def center_layer(image, layer, pf_radio):
   x = layer.offsets[0]
   y = layer.offsets[1]
-  if pf_radio == "horizontally" or pf_radio == "both":
+  if pf_radio in ("horizontally", "both"):
    x = (image.width - layer.width) / 2
-  if pf_radio == "vertically" or pf_radio == "both":
+  if pf_radio in ("vertically", "both"):
    y = (image.height - layer.height) / 2
   layer.set_offsets(x, y)
 

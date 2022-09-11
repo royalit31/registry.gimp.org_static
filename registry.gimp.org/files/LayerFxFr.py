@@ -3208,7 +3208,7 @@ class layerfx_bevel_emboss(layerfx_base):
         "offsetx": drawable.offsets[0],
         "offsety": drawable.offsets[1]
       }
-    elif style == 2 or style == 3:
+    elif style in (2, 3):
       layersize = {
         "width":   drawable.width + lyrgrowamt,
         "height":  drawable.height + lyrgrowamt,
@@ -3300,7 +3300,7 @@ class layerfx_bevel_emboss(layerfx_base):
     pdb.gimp_selection_load(alphaSel)
     if style == 0:
       pdb.gimp_selection_grow(img, size)
-    elif style == 2 or style == 3:
+    elif style in (2, 3):
       pdb.gimp_selection_grow(img, halfsizec)
     pdb.gimp_selection_invert(img)
     gimp.set_foreground(0, 0, 0)
@@ -5555,7 +5555,7 @@ class layerfx_reapply_effects(layerfx_drop_shadow, layerfx_inner_shadow, layerfx
     pdb.gimp_message_set_handler(ERROR_CONSOLE)
     self.img = img
     self.drawable = drawable
-    if runmode == RUN_INTERACTIVE or runmode == RUN_WITH_LAST_VALS:
+    if runmode in (RUN_INTERACTIVE, RUN_WITH_LAST_VALS):
       self.reapplyEffects(img, drawable)
     elif runmode == RUN_NONINTERACTIVE:
       if self.validatedata(img, drawable):

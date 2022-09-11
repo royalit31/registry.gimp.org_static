@@ -595,7 +595,7 @@ class analyzer_selector(color_analyzer):
          radius_x, radius_y = pdb.gimp_context_get_feather_radius()
          pdb.gimp_selection_feather(image, radius_x)
       if starting_sel is not None:
-         if CHANNEL_OP_ADD == operation or CHANNEL_OP_INTERSECT == operation:
+         if operation in (CHANNEL_OP_ADD, CHANNEL_OP_INTERSECT):
             pdb.gimp_image_select_item(image, operation, starting_sel)
          elif CHANNEL_OP_SUBTRACT == operation:
             sel_rgb = pdb.gimp_selection_save(image)
